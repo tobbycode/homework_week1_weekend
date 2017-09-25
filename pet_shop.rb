@@ -47,8 +47,8 @@ def increase_pets_sold(pet_shop, sold)
 end
 
 
-def stock_count(count)
-  return @pet_shop[:pets].length
+def stock_count(pet_shop)
+  pet_shop[:pets].length
 
 end
 
@@ -97,22 +97,38 @@ end
 
 def find_pet_by_name(pet_shop, name)
 
-  for pet in pet_shop[:pets][0]
-    if pet_shop[:pets][0][:name] == name
+  for pet in pet_shop[:pets]
+    if pet[:name] == name
       return pet
     end
   end
-
-
+  return nil
 end
 
-def find_pet_by_name(pet_shop, name)
-
-  for pet in pet_shop[:pets][0]
-    if pet_shop[:pets][0][:name] == name
-      return pet
+# def find_pet_by_name(pet_shop, name)
+#
+#   for pet in pet_shop[:pets][0]
+#     if pet_shop[:pets][0][:name] == name
+#       return pet
+#     end
+#   end
+# end
+#
+def remove_pet_by_name(pet_shop, name)
+  for pets in pet_shop[:pets]
+    if pets[:name] == name
+      pet_shop[:pets].delete(pets)
     end
   end
-
+end
+#
+#
+#   end
+# end
+def add_pet_to_stock(pet_shop, new_pet)
+  # pet_shop[:pets] << new_pet
+  #
+  # count = stock_count(pet_shop)
+  # count = count + new_pet.length
 
 end
